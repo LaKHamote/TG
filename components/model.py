@@ -44,6 +44,8 @@ class VoiceFakeDetection:
             self.model = vision_learner(dls, self.architectures[architecture_name], metrics=F1Score(average='macro'))
             self.model.fine_tune(num_epochs, cbs=eval(callbacks))
 
+            self.model.export(f"export_{architecture_name}_{transform_type}.pkl")
+
             weights_path = f"{architecture_name}_{transform_type}.pkl"
             with open(weights_path, 'wb') as f:
                 pickle.dump(self.model, f)

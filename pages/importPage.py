@@ -1,6 +1,13 @@
 import streamlit as st
+from fastai.vision.all import load_learner
 
 
-zip_file = st.file_uploader("Upload a ZIP file containing the dataset", type=["zip"])
+uploaded_file = st.file_uploader("Upload a PKL file containing the model", type=["pkl"])
+
+if uploaded_file is not None:
+    model = load_learner(uploaded_file)
+
+    print(model.eval())
+
 
 
