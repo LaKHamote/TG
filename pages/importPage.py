@@ -10,4 +10,9 @@ if uploaded_file is not None:
     print(model.eval())
 
 
+from context.userContext import getUserContext
+getUserContext()
+print(st.session_state)
+
+
 
