@@ -52,7 +52,7 @@ elif st.session_state["view"] == "Register":
 if not st.session_state.get("authentication_status"):
     st.write("---")
     if (st.session_state.view == "Register"):
-        st.button("Already have an account? Sign in", key="to_login", on_click=lambda: switch_view("Login")):
+        st.button("Already have an account? Sign in", key="to_login", on_click=lambda: switch_view("Login"))
         switch_view("Login")
     elif (st.session_state.view == "Login"):
         st.button("Dont have an account? Sign up", key="to_register", on_click=lambda: switch_view("Register"))
